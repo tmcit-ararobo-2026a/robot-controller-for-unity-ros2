@@ -20,18 +20,28 @@ public class catchcontroller : MonoBehaviour
             }
         }
     }
+    void FixedUpdate()
+    {
+        if (buttonflag)
+        {
+            std_msgs.msg.Bool boolmsg = new std_msgs.msg.Bool();
+            boolmsg.Data = true;
+            throw_pub.Publish(boolmsg);
+        }
+        if (!buttonflag)
+        {
+            std_msgs.msg.Bool boolmsg = new std_msgs.msg.Bool();
+            boolmsg.Data = false;
+            throw_pub.Publish(boolmsg);
+        }
+    }
     public void OnButtonDown()
     {
-        std_msgs.msg.Bool boolmsg = new std_msgs.msg.Bool();
-        boolmsg.Data = true;
-        throw_pub.Publish(boolmsg);
+        buttonflag = true;
     }
     // ボタンを離したときの処理
     public void OnButtonUp()
     {
-        std_msgs.msg.Bool boolmsg = new std_msgs.msg.Bool();
-        boolmsg.Data = false;
-        throw_pub.Publish(boolmsg);
         buttonflag = false;
     }
 }

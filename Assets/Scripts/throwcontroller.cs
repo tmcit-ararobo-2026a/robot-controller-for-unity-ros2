@@ -32,6 +32,12 @@ public class throwcontroller : MonoBehaviour
             boolmsg.Data = true;
             throw_pub.Publish(boolmsg);
         }
+        if (!buttonflag)
+        {
+            std_msgs.msg.Bool boolmsg = new std_msgs.msg.Bool();
+            boolmsg.Data = false;
+            throw_pub.Publish(boolmsg);
+        }
         std_msgs.msg.Float32 speedmsg = new std_msgs.msg.Float32();
         speedmsg.Data = (float)throw_slider.value;
         throw_speed.Publish(speedmsg);
@@ -46,9 +52,6 @@ public class throwcontroller : MonoBehaviour
     // ボタンを離したときの処理
     public void OnButtonUp()
     {
-        std_msgs.msg.Bool boolmsg = new std_msgs.msg.Bool();
-        boolmsg.Data = false;
-        throw_pub.Publish(boolmsg);
         buttonflag = false;
     }
 }

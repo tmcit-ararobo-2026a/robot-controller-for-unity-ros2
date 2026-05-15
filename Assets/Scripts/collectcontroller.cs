@@ -29,6 +29,12 @@ public class collectcontroller : MonoBehaviour
             boolmsg.Data = true;
             throw_pub.Publish(boolmsg);
         }
+        if (!buttonflag)
+        {
+            std_msgs.msg.Bool boolmsg = new std_msgs.msg.Bool();
+            boolmsg.Data = false;
+            throw_pub.Publish(boolmsg);
+        }
     }
 
     public void OnButtonDown()
@@ -38,9 +44,6 @@ public class collectcontroller : MonoBehaviour
     // ボタンを離したときの処理
     public void OnButtonUp()
     {
-        std_msgs.msg.Bool boolmsg = new std_msgs.msg.Bool();
-        boolmsg.Data = false;
-        throw_pub.Publish(boolmsg);
         buttonflag = false;
     }
 }
