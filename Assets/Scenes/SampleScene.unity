@@ -1187,6 +1187,17 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::DeskHand
   joystickFinger: {fileID: 0}
+--- !u!114 &256021289 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 3881087803549984439, guid: ec536a7718376554185e4a856d5ae230, type: 3}
+  m_PrefabInstance: {fileID: 998580815}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 256021286}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 42844a4fccbd54746b90cade4ff70f73, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &260012275
 GameObject:
   m_ObjectHideFlags: 0
@@ -3423,6 +3434,7 @@ GameObject:
   - component: {fileID: 577991050}
   - component: {fileID: 577991051}
   - component: {fileID: 577991052}
+  - component: {fileID: 577991053}
   m_Layer: 0
   m_Name: script
   m_TagString: Untagged
@@ -3561,7 +3573,20 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 880899092445b9e8eacee5d4a7eb0d92, type: 3}
   m_Name: 
   m_EditorClassIdentifier: '::'
-  joystickFinger: {fileID: 0}
+  joystickFinger: {fileID: 256021289}
+--- !u!114 &577991053
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 577991042}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7d4ac28bb7431dca5a93e01ad302f291, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::DeskArm
+  joystickLiftAndDepth: {fileID: 1600871366}
 --- !u!1 &592183917
 GameObject:
   m_ObjectHideFlags: 0
@@ -9470,29 +9495,22 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1588711461}
   m_CullTransparentMesh: 1
---- !u!1 &1600871364 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 3881087803549984437, guid: ec536a7718376554185e4a856d5ae230, type: 3}
-  m_PrefabInstance: {fileID: 1916043961}
-  m_PrefabAsset: {fileID: 0}
 --- !u!224 &1600871365 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 3881087803549984436, guid: ec536a7718376554185e4a856d5ae230, type: 3}
   m_PrefabInstance: {fileID: 1916043961}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &1600871366
+--- !u!114 &1600871366 stripped
 MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
+  m_CorrespondingSourceObject: {fileID: 3881087803549984439, guid: ec536a7718376554185e4a856d5ae230, type: 3}
+  m_PrefabInstance: {fileID: 1916043961}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1600871364}
+  m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7d4ac28bb7431dca5a93e01ad302f291, type: 3}
+  m_Script: {fileID: 11500000, guid: 42844a4fccbd54746b90cade4ff70f73, type: 3}
   m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::DeskArm
-  joystickLiftAndDepth: {fileID: 0}
+  m_EditorClassIdentifier: 
 --- !u!1001 &1624693576
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -11246,10 +11264,7 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents:
-    - targetCorrespondingSourceObject: {fileID: 3881087803549984437, guid: ec536a7718376554185e4a856d5ae230, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 1600871366}
+    m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ec536a7718376554185e4a856d5ae230, type: 3}
 --- !u!1 &1924660505
 GameObject:
