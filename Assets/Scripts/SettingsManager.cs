@@ -1,77 +1,77 @@
 using UnityEngine;
 using UnityEngine.UI;
-using TMPro; // TextMeshPro‚ğg—p‚·‚é‚½‚ß’Ç‰Á
+using TMPro; // TextMeshProï¿½ï¿½ï¿½gï¿½pï¿½ï¿½ï¿½é‚½ï¿½ß’Ç‰ï¿½
 
 public class SettingsManager : MonoBehaviour
 {
     public GameObject settingsPanel;
     public Slider volumeSlider;
     public Toggle bgmToggle;
-    // FPSİ’è—p‚Ìƒhƒƒbƒvƒ_ƒEƒ“‚ğ’Ç‰Á
+    // FPSï¿½İ’ï¿½pï¿½Ìƒhï¿½ï¿½ï¿½bï¿½vï¿½_ï¿½Eï¿½ï¿½ï¿½ï¿½Ç‰ï¿½
     public TMP_Dropdown fpsDropdown;
 
     void Start()
     {
-        // ‰Šúó‘Ô‚Å‚Íİ’èƒpƒlƒ‹‚ğ”ñ•\¦‚É‚·‚é
+        // ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ô‚Å‚Íİ’ï¿½pï¿½lï¿½ï¿½ï¿½ï¿½ï¿½\ï¿½ï¿½ï¿½É‚ï¿½ï¿½ï¿½
         settingsPanel.SetActive(false);
 
-        // ƒXƒ‰ƒCƒ_[‚ÆƒgƒOƒ‹‚Ì‰Šú’l‚ğİ’è
+        // ï¿½Xï¿½ï¿½ï¿½Cï¿½_ï¿½[ï¿½Æƒgï¿½Oï¿½ï¿½ï¿½Ìï¿½ï¿½ï¿½ï¿½lï¿½ï¿½İ’ï¿½
         if (volumeSlider != null)
         {
-            volumeSlider.value = 0.5f; // —á: 0.5‚É‰Šúİ’è
+            volumeSlider.value = 0.5f; // ï¿½ï¿½: 0.5ï¿½Éï¿½ï¿½ï¿½ï¿½İ’ï¿½
         }
         if (bgmToggle != null)
         {
-            bgmToggle.isOn = true; // —á: ON‚É‰Šúİ’è
+            bgmToggle.isOn = true; // ï¿½ï¿½: ONï¿½Éï¿½ï¿½ï¿½ï¿½İ’ï¿½
         }
 
-        // ƒhƒƒbƒvƒ_ƒEƒ“‚Ì‰Šúİ’è
+        // ï¿½hï¿½ï¿½ï¿½bï¿½vï¿½_ï¿½Eï¿½ï¿½ï¿½Ìï¿½ï¿½ï¿½ï¿½İ’ï¿½
         if (fpsDropdown != null)
         {
-            // ƒIƒvƒVƒ‡ƒ“‚ğƒNƒŠƒA
+            // ï¿½Iï¿½vï¿½Vï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Nï¿½ï¿½ï¿½A
             fpsDropdown.ClearOptions();
-            // ƒIƒvƒVƒ‡ƒ“‚ğ’Ç‰Á
+            // ï¿½Iï¿½vï¿½Vï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ç‰ï¿½
             fpsDropdown.AddOptions(new System.Collections.Generic.List<string> { "30", "50", "60" });
-            // ƒhƒƒbƒvƒ_ƒEƒ“‚Ì‰Šú’l‚ğŒ»İ‚ÌFPS‚Éİ’è
+            // ï¿½hï¿½ï¿½ï¿½bï¿½vï¿½_ï¿½Eï¿½ï¿½ï¿½Ìï¿½ï¿½ï¿½ï¿½lï¿½ï¿½ï¿½ï¿½ï¿½İ‚ï¿½FPSï¿½Éİ’ï¿½
             fpsDropdown.value = fpsDropdown.options.FindIndex(option => option.text == Application.targetFrameRate.ToString());
-            // ƒhƒƒbƒvƒ_ƒEƒ“‚Ì’l‚ª•ÏX‚³‚ê‚½‚Æ‚«‚ÌƒŠƒXƒi[‚ğ’Ç‰Á
+            // ï¿½hï¿½ï¿½ï¿½bï¿½vï¿½_ï¿½Eï¿½ï¿½ï¿½Ì’lï¿½ï¿½ï¿½ÏXï¿½ï¿½ï¿½ê‚½ï¿½Æ‚ï¿½ï¿½Ìƒï¿½ï¿½Xï¿½iï¿½[ï¿½ï¿½Ç‰ï¿½
             fpsDropdown.onValueChanged.AddListener(OnFPSDropdownChanged);
         }
 
-        // ‰ŠúFPS‚ğİ’è
+        // ï¿½ï¿½ï¿½ï¿½FPSï¿½ï¿½İ’ï¿½
         SetFPS(30);
     }
 
-    // İ’èƒpƒlƒ‹‚Ì•\¦/”ñ•\¦‚ğØ‚è‘Ö‚¦‚éƒƒ\ƒbƒh
+    // ï¿½İ’ï¿½pï¿½lï¿½ï¿½ï¿½Ì•\ï¿½ï¿½/ï¿½ï¿½\ï¿½ï¿½ï¿½ï¿½Ø‚ï¿½Ö‚ï¿½ï¿½éƒï¿½\ï¿½bï¿½h
     public void ToggleSettingsPanel()
     {
         bool isActive = settingsPanel.activeSelf;
         settingsPanel.SetActive(!isActive);
     }
 
-    // ‰¹—ÊƒXƒ‰ƒCƒ_[‚Ì’l‚ª•ÏX‚³‚ê‚½‚Æ‚«‚ÉŒÄ‚Î‚ê‚éƒƒ\ƒbƒh
+    // ï¿½ï¿½ï¿½ÊƒXï¿½ï¿½ï¿½Cï¿½_ï¿½[ï¿½Ì’lï¿½ï¿½ï¿½ÏXï¿½ï¿½ï¿½ê‚½ï¿½Æ‚ï¿½ï¿½ÉŒÄ‚Î‚ï¿½éƒï¿½\ï¿½bï¿½h
     public void OnVolumeChanged(float value)
     {
-        Debug.Log("‰¹—Ê: " + value);
-        // ‚±‚±‚ÅÀÛ‚ÌƒI[ƒfƒBƒIƒ\[ƒX‚Ì‰¹—Ê‚ğ•ÏX‚·‚éˆ—‚ğ‹Lq
-        // —á: AudioListener.volume = value;
+        Debug.Log("ï¿½ï¿½ï¿½ï¿½: " + value);
+        // ï¿½ï¿½ï¿½ï¿½ï¿½Åï¿½ï¿½Û‚ÌƒIï¿½[ï¿½fï¿½Bï¿½Iï¿½\ï¿½[ï¿½Xï¿½Ì‰ï¿½ï¿½Ê‚ï¿½ÏXï¿½ï¿½ï¿½éˆï¿½ï¿½ï¿½ï¿½ï¿½Lï¿½q
+        // ï¿½ï¿½: AudioListener.volume = value;
     }
 
-    // BGMƒgƒOƒ‹‚Ìó‘Ô‚ª•ÏX‚³‚ê‚½‚Æ‚«‚ÉŒÄ‚Î‚ê‚éƒƒ\ƒbƒh
+    // BGMï¿½gï¿½Oï¿½ï¿½ï¿½Ìï¿½Ô‚ï¿½ï¿½ÏXï¿½ï¿½ï¿½ê‚½ï¿½Æ‚ï¿½ï¿½ÉŒÄ‚Î‚ï¿½éƒï¿½\ï¿½bï¿½h
     public void OnBGM_ToggleChanged(bool isOn)
     {
         Debug.Log("BGM ON/OFF: " + isOn);
-        // ‚±‚±‚ÅBGM‚ÌÄ¶/’â~‚ğØ‚è‘Ö‚¦‚éˆ—‚ğ‹Lq
+        // ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½BGMï¿½ÌÄï¿½/ï¿½ï¿½~ï¿½ï¿½Ø‚ï¿½Ö‚ï¿½ï¿½éˆï¿½ï¿½ï¿½ï¿½ï¿½Lï¿½q
     }
 
-    // ƒhƒƒbƒvƒ_ƒEƒ“‚Ì’l‚ª•ÏX‚³‚ê‚½‚Æ‚«‚ÉŒÄ‚Î‚ê‚éƒƒ\ƒbƒh
+    // ï¿½hï¿½ï¿½ï¿½bï¿½vï¿½_ï¿½Eï¿½ï¿½ï¿½Ì’lï¿½ï¿½ï¿½ÏXï¿½ï¿½ï¿½ê‚½ï¿½Æ‚ï¿½ï¿½ÉŒÄ‚Î‚ï¿½éƒï¿½\ï¿½bï¿½h
     public void OnFPSDropdownChanged(int index)
     {
         int fps = int.Parse(fpsDropdown.options[index].text);
         SetFPS(fps);
     }
 
-    // FPS‚ğİ’è‚·‚éƒƒ\ƒbƒh
+    // FPSï¿½ï¿½İ’è‚·ï¿½éƒï¿½\ï¿½bï¿½h
     private void SetFPS(int fps)
     {
         Application.targetFrameRate = fps;
