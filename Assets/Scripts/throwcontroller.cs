@@ -3,6 +3,7 @@ using ROS2;
 using Unity.VisualScripting.Antlr3.Runtime.Tree;
 using UnityEngine.UI;
 using std_msgs.msg;
+using TMPro;
 public class throwcontroller : MonoBehaviour
 {
     private ROS2UnityComponent ros2Unity;
@@ -10,6 +11,7 @@ public class throwcontroller : MonoBehaviour
     private IPublisher<std_msgs.msg.Bool> throw_pub;
     private IPublisher<std_msgs.msg.Float32> throw_speed;
     public Slider throw_slider;
+    public TextMeshProUGUI textMeshPro;
     bool buttonflag = false;
     void Start()
     {
@@ -40,6 +42,7 @@ public class throwcontroller : MonoBehaviour
         }
         std_msgs.msg.Float32 speedmsg = new std_msgs.msg.Float32();
         speedmsg.Data = (float)throw_slider.value;
+        textMeshPro.text = "throw_speed    " + throw_slider.value;
         throw_speed.Publish(speedmsg);
         Debug.Log(speedmsg.Data);
     }
