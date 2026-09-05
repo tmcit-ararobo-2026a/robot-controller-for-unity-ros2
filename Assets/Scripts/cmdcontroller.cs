@@ -30,8 +30,8 @@ public class cmdcontroller : MonoBehaviour
             return;
         }
         geometry_msgs.msg.Twist msg = new geometry_msgs.msg.Twist();
-        msg.Linear.X = (double)joystickL.Horizontal;
-        msg.Linear.Y = (double)joystickL.Vertical;
+        msg.Linear.X = (double)joystickL.Vertical;
+        msg.Linear.Y = (double)joystickL.Horizontal;
         msg.Angular.Z = (double)joystickR.Horizontal;
         twist_pub.Publish(msg);
 
